@@ -1,8 +1,23 @@
-I wouldn't say I had any interesting observations here, other than it took me a lot of traversing
-through the directories to understand what I was really trying to do. It was one thing to watch 
-you do it last week, and a very different thing to do it myself. 
+In the exercise writeup, "how confident are you in your fix?" makes me question my
+confidence in my fix. 
 
-Editing the spelling mistake and the golden data was straight forward. I just needed to revisit 
-the regression test and see which files were being compared, where they were located, and also 
-which command I needed to use to run the test properly (I may or may not have been trying to 
-run the test__regression executable directly from the regression directory :') ).
+From exercise 1, I was somewhat familiar with what I needed to do to update the golden
+data, and from last week's Sunday session, I knew what bug we were looking for and what
+caused it.
+
+I initially thought I could simply fix the bug by moving the players.push_back() call
+to after initializing the first elements in places, purses, and inPenaltyBox. This would
+have made players.size() == 0 when configuring the vectors for the first player added,
+which would have fixed the off by one error. But then I noticed the sneaky vector 
+initialization when calling the Game() constructor. 
+
+I think this would have caused bugs in the code in one of two ways:
+1. If more than 6 players were added, the player configuration syntax would not work
+   and new players' places, purses, and inPenaltyBox would not be initialized properly.
+2. Changing the player configuration syntax to use push_back() would make places, 
+   purses, and inPenaltyBox begin with 6 zeros then it would begin adding the new 
+   elements.
+
+I chose to use push_back() to configure the new players, and also removed the vector
+initialization when the Game() constructor is called.
+  

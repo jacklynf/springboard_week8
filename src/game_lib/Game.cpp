@@ -6,13 +6,13 @@
 using namespace std;
 
 Game::Game ()
-  : places(6),
-    purses(6),
-    inPenaltyBox(6),
+  : //places(6), // initializing 6 elements here can cause bugs later 
+    //purses(6), 
+    //inPenaltyBox(6),
     currentPlayer(0)
 {
   // preserve existing bug behavior
-  inPenaltyBox[0] = true;
+  //inPenaltyBox[0] = true;
 
   for (int question_idx=0; question_idx<50; question_idx++)
   {
@@ -45,10 +45,13 @@ Game::Game ()
 bool Game::add (string playerName)
 {
   players.push_back(playerName);
-  places[players.size()] = 0;
-  purses[players.size()] = 0;
-  inPenaltyBox[players.size()] = false;
-
+  places.push_back(0); 
+  purses.push_back(0);
+  inPenaltyBox.push_back(false);
+  //places[players.size()] = 0; // this syntax will not work if more than 6 players
+  //purses[players.size()] = 0;
+  //inPenaltyBox[players.size()] = false;
+  
   cout << playerName << " was added" << endl;
   cout << "They are player number " << players.size() << endl;
 
