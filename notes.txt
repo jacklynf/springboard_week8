@@ -1,0 +1,8 @@
+I wouldn't say I had any interesting observations here, other than it took me a lot of traversing
+through the directories to understand what I was really trying to do. It was one thing to watch 
+you do it last week, and a very different thing to do it myself. 
+
+Editing the spelling mistake and the golden data was straight forward. I just needed to revisit 
+the regression test and see which files were being compared, where they were located, and also 
+which command I needed to use to run the test properly (I may or may not have been trying to 
+run the test__regression executable directly from the regression directory :') ).
