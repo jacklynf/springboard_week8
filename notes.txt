@@ -8,7 +8,7 @@ caused it.
 I initially thought I could simply fix the bug by moving the players.push_back() call
 to after initializing the first elements in places, purses, and inPenaltyBox. This would
 have made players.size() == 0 when configuring the vectors for the first player added,
-which would have fixed the off by one error. But then I noticed the sneaky vector 
+which would have fixed the off by one error. But then I noticed the vector 
 initialization when calling the Game() constructor. 
 
 I think this would have caused bugs in the code in one of two ways:
